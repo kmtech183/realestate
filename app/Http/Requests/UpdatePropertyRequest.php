@@ -22,6 +22,12 @@ class UpdatePropertyRequest extends FormRequest
                 'price' => preg_replace('/[^0-9.]/', '', (string) $this->price),
             ]);
         }
+
+        if (empty($this->state)) {
+            $this->merge([
+                'state' => 'Gujarat',
+            ]);
+        }
     }
 
     public function rules(): array

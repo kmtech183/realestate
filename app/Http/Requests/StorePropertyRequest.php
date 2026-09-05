@@ -27,6 +27,12 @@ class StorePropertyRequest extends FormRequest
             ]);
         }
 
+        if (empty($this->state)) {
+            $this->merge([
+                'state' => 'Gujarat',
+            ]);
+        }
+
         if ($this->has('title') && empty($this->slug)) {
             $this->merge([
                 'slug' => Str::slug($this->title) . '-' . rand(1000, 9999),
